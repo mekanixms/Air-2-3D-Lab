@@ -1,6 +1,6 @@
 # Privacy Policy — Air 2 3D Lab
 
-**Last updated:** 24 August 2026
+**Last updated:** 25 August 2026
 
 **App:** Air 2 3D Lab (`com.xreal.handshapes`)  
 **Developer:** [ToolsForTheMasses]  
@@ -42,7 +42,7 @@ The App may use network permission for:
 
 - An **optional local Wi‑Fi stream** of your view (MJPEG) that you start yourself, typically so another device on the **same local network** (for example VLC) can preview the view. This stream stays on your LAN unless you expose it yourself.
 - Normal Android / Play Store connectivity.
-- An **optional Voice assistant**: only after you enable it, enter your own cloud LLM API key, and tap **Send** on the editable prompt. The App then sends the prompt text (and tool results) to the **provider you chose** (Gemini, Claude, OpenAI, Kimi, or xAI). If the assistant calls **look_at_image** or **draw_on_image** with a preview, a **downscaled JPEG** of that photo/canvas is included so a vision model can see or check the drawing. Speech-to-text runs **on-device** and is **not** uploaded until you explicitly send the edited text.
+- An **optional Voice assistant**: only after you enable it, enter your own cloud LLM API key, and tap **Send** on the editable prompt. The App then sends the prompt text (and tool results) to the **provider you chose** (Gemini, Claude, OpenAI, Kimi, or xAI). If the assistant calls **look_at_image** or **draw_on_image** with a preview, a **downscaled JPEG** of that photo/canvas is included so a vision model can see or check the drawing. If it calls **look_at_view** (or **click_ui** with preview), a **downscaled JPEG of the current mixed-reality view** is included. Speech-to-text runs **on-device** and is **not** uploaded until you explicitly send the edited text.
 
 The App does not require internet access for core 3D editing, mates, sketch tools, or local STL / image loading.
 
@@ -56,7 +56,7 @@ The Music player shape can send **media key** and **volume** commands to the act
 
 ### Preferences
 
-The App may store simple preferences on the device (for example Home folder display path, select-hold time, axes offsets, capture resolution, Voice enable flag, chosen LLM provider, and the API key you entered) using Android / Unity local storage (such as SharedPreferences / PlayerPrefs). The API key is stored only on your device and is sent only to the LLM provider you selected when you submit a prompt.
+The App may store simple preferences on the device (for example Home folder display path, select-hold time, axes offsets, capture resolution, Voice enable flag, chosen LLM provider, and the API key you entered) using Android / Unity local storage (such as SharedPreferences / PlayerPrefs). The API key is stored only on your device and is sent only to the LLM provider you selected when you submit a prompt. You can export a password-protected `.hsb` backup (Menu → Environment → **Backup**) that includes those keys, triad/handle offsets, and saved environments; **Restore** decrypts it only with the password you chose.
 
 ---
 
@@ -85,9 +85,9 @@ The App is not directed at children under 13. Do not use the App if you are unde
 We do not sell personal information.  
 We do not share your STLs, videos, environments, or camera feed with third parties through the App.
 
-If you enable the Voice assistant and tap **Send**, the prompt text (and tool results needed for that request) are sent to the **cloud LLM provider you configured** under that provider’s terms. We do not operate that backend. That payload can include a JPEG when you ask the assistant to look at or draw on a photo.
+If you enable the Voice assistant and tap **Send**, the prompt text (and tool results needed for that request) are sent to the **cloud LLM provider you configured** under that provider’s terms. We do not operate that backend. That payload can include a JPEG when you ask the assistant to look at or draw on a photo, or to look at the live view (`look_at_view`).
 
-You may choose to share files yourself (for example exporting a `.hse` package or using the Android share sheet).
+You may choose to share files yourself (for example exporting a `.hse` layout package, a password-protected `.hsb` settings backup, or using the Android share sheet).
 
 ---
 
@@ -110,7 +110,7 @@ Content stays on your device until you delete it, clear app data, or uninstall t
 
 ## Security
 
-We rely on on-device processing and Android platform protections. API keys you enter for the Voice assistant are stored on-device; treat them like passwords and revoke them at the provider if the device is lost. No method of electronic storage is 100% secure; keep your device locked and only share packages with people you trust.
+We rely on on-device processing and Android platform protections. API keys you enter for the Voice assistant are stored on-device; treat them like passwords and revoke them at the provider if the device is lost. A **Backup** `.hsb` is encrypted with a password you type at export; anyone with the file still needs that password to **Restore** (and thus to read the keys). No method of electronic storage is 100% secure; keep your device locked, choose a strong backup password, and only share packages with people you trust.
 
 ---
 
