@@ -1,6 +1,6 @@
 # Privacy Policy — Air 2 3D Lab
 
-**Last updated:** 27 July 2026
+**Last updated:** 24 August 2026
 
 **App:** Air 2 3D Lab (`com.xreal.handshapes`)  
 **Developer:** [ToolsForTheMasses]  
@@ -25,8 +25,8 @@ This privacy policy describes how Air 2 3D Lab (“the App”) handles informati
 
 You may choose to:
 
-- Pick a **Home folder** (via Android’s Storage Access Framework) to browse and load **STL** models and image textures.
-- **Share** local **video** files into the App for the Video screen.
+- Pick a **Home folder** (via Android’s Storage Access Framework) to browse and load **STL** / glTF models, **image textures** (on meshes), and **Image** photo plates. If you ask the Voice assistant to **save an image**, the App may **write a PNG** into that same Home folder.
+- **Share** local **video** files into the App for the Video screen. Share opens a lightweight on-device list (not the glasses session) and copies the file into app storage. You can delete those copies from that list.
 - **Save / load** named environments and export / import `.hse` packages.
 - Capture **screenshots** (and optional recordings) saved to app storage / Pictures.
 
@@ -42,8 +42,13 @@ The App may use network permission for:
 
 - An **optional local Wi‑Fi stream** of your view (MJPEG) that you start yourself, typically so another device on the **same local network** (for example VLC) can preview the view. This stream stays on your LAN unless you expose it yourself.
 - Normal Android / Play Store connectivity.
+- An **optional Voice assistant**: only after you enable it, enter your own cloud LLM API key, and tap **Send** on the editable prompt. The App then sends the prompt text (and tool results) to the **provider you chose** (Gemini, Claude, OpenAI, Kimi, or xAI). If the assistant calls **look_at_image** or **draw_on_image** with a preview, a **downscaled JPEG** of that photo/canvas is included so a vision model can see or check the drawing. Speech-to-text runs **on-device** and is **not** uploaded until you explicitly send the edited text.
 
-The App does not require internet access for core 3D editing, mates, sketch tools, or local STL loading.
+The App does not require internet access for core 3D editing, mates, sketch tools, or local STL / image loading.
+
+### Microphone (optional)
+
+If you use the Voice assistant **Mic** control, the App requests **RECORD_AUDIO** so Android’s on-device speech recognizer can turn speech into text. Audio is processed on the device for recognition; the App does not upload raw audio to the developer. The resulting text stays in the editable prompt until you tap **Send**.
 
 ### Device / media controls
 
@@ -51,7 +56,7 @@ The Music player shape can send **media key** and **volume** commands to the act
 
 ### Preferences
 
-The App may store simple preferences on the device (for example Home folder display path, select-hold time, axes offsets, capture resolution) using Android / Unity local storage (such as SharedPreferences / PlayerPrefs).
+The App may store simple preferences on the device (for example Home folder display path, select-hold time, axes offsets, capture resolution, Voice enable flag, chosen LLM provider, and the API key you entered) using Android / Unity local storage (such as SharedPreferences / PlayerPrefs). The API key is stored only on your device and is sent only to the LLM provider you selected when you submit a prompt.
 
 ---
 
@@ -80,6 +85,8 @@ The App is not directed at children under 13. Do not use the App if you are unde
 We do not sell personal information.  
 We do not share your STLs, videos, environments, or camera feed with third parties through the App.
 
+If you enable the Voice assistant and tap **Send**, the prompt text (and tool results needed for that request) are sent to the **cloud LLM provider you configured** under that provider’s terms. We do not operate that backend. That payload can include a JPEG when you ask the assistant to look at or draw on a photo.
+
 You may choose to share files yourself (for example exporting a `.hse` package or using the Android share sheet).
 
 ---
@@ -93,15 +100,17 @@ Content stays on your device until you delete it, clear app data, or uninstall t
 ## Your choices
 
 - Deny camera permission — core App use continues without the camera background.
+- Deny microphone permission — Voice Mic stays unavailable; you can still type in the prompt if Voice is enabled.
+- Leave Voice off / do not enter an API key — no prompts are sent to cloud LLM providers.
 - Do not pick a Home folder or share videos — those features simply stay unused.
 - Revoke permissions in Android Settings at any time.
-- Clear app storage or uninstall to remove app-private data.
+- Clear app storage or uninstall to remove app-private data (including a stored API key).
 
 ---
 
 ## Security
 
-We rely on on-device processing and Android platform protections. No method of electronic storage is 100% secure; keep your device locked and only share packages with people you trust.
+We rely on on-device processing and Android platform protections. API keys you enter for the Voice assistant are stored on-device; treat them like passwords and revoke them at the provider if the device is lost. No method of electronic storage is 100% secure; keep your device locked and only share packages with people you trust.
 
 ---
 
@@ -113,8 +122,8 @@ We may update this policy when the App’s behavior changes. The “Last updated
 
 ## Contact
 
-Questions about this policy: **[YOUR EMAIL]**
+Questions about this policy: **cezar.lucan@gmail.com**
 
 ---
 
-*This policy is provided for the Google Play listing of Air 2 3D Lab. It is not legal advice; adapt the placeholder name/email and host a public URL before submitting.*
+*This policy is provided for the Google Play listing of Air 2 3D Lab. It is not legal advice; host a public URL before submitting.*
